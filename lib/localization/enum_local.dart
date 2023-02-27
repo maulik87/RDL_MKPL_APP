@@ -17,4 +17,5 @@ enum EnumLocal {
   txtEnterFullName,
   txtEnterCompanyName,
   txtForgotPasswordTitle,
+  txtSearchHere,
 }

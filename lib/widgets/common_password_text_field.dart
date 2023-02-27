@@ -13,6 +13,7 @@ class CommonPasswordTextField extends StatefulWidget {
   final String prefixText;
   final void Function()? onTap;
   final Color textColor;
+  final Color hintTextColor;
   final String? Function(String?)? validator;
 
   const CommonPasswordTextField({
@@ -26,6 +27,7 @@ class CommonPasswordTextField extends StatefulWidget {
     this.readOnly = false,
     this.onTap,
     this.textColor = AppColor.black,
+    this.hintTextColor = AppColor.txtGrey,
     this.validator,
   });
 
@@ -63,12 +65,13 @@ class _CommonPasswordTextFieldState extends State<CommonPasswordTextField> {
       readOnly: widget.readOnly,
       onTap: widget.onTap,
       validator: widget.validator,
-      style: AppFontStyle.styleW400(AppColor.black, AppFontSize.size_14),
+      style: AppFontStyle.styleW400(widget.textColor, AppFontSize.size_14),
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColor.white,
         hintText: widget.hintText,
-        hintStyle: AppFontStyle.styleW400(AppColor.black, AppFontSize.size_12),
+        hintStyle:
+            AppFontStyle.styleW400(widget.hintTextColor, AppFontSize.size_12),
         contentPadding: EdgeInsets.only(
           left: AppSizes.width_8,
         ),

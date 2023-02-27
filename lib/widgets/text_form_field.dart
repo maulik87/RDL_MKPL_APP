@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/app_color.dart';
-import 'package:rdl_market_place_app/core/config/app_enums.dart';
 import 'package:rdl_market_place_app/core/config/app_font_style.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
 
@@ -19,6 +17,7 @@ class CommonTextFormField extends StatelessWidget {
     this.textColor = AppColor.black,
     this.hintTextColor = AppColor.txtGrey,
     this.validator,
+    this.prefixIcon = const SizedBox(),
   });
 
   final String hintText;
@@ -31,6 +30,7 @@ class CommonTextFormField extends StatelessWidget {
   final void Function()? onTap;
   final Color textColor;
   final Color hintTextColor;
+  final Widget prefixIcon;
   final String? Function(String?)? validator;
 
   @override
@@ -64,6 +64,7 @@ class CommonTextFormField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         filled: true,
+        prefixIcon: prefixIcon,
         fillColor: AppColor.white,
         hintText: hintText,
         hintStyle: AppFontStyle.styleW500(hintTextColor, AppFontSize.size_12),
