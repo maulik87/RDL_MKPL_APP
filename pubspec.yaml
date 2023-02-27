@@ -1,0 +1,45 @@
+name: rdl_market_place_app
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  get_storage: ^2.0.3
+  fluttertoast: ^8.1.2
+  json_annotation: ^4.8.0
+  flutter_screenutil: ^5.6.1
+  dio: ^4.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  json_serializable: ^6.6.1
+
+flutter:
+  uses-material-design: true
+
+#  assets:
+#    - assets/icons/
+#    - assets/images/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf #Reguler
+          weight: 500
+        - asset: assets/fonts/OpenSans-Medium.ttf #Medium
+          weight: 600
+        - asset: assets/fonts/OpenSans-Bold.ttf #Bold
+          weight: 700
+
