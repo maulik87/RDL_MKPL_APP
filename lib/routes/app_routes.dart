@@ -7,4 +7,7 @@ abstract class Routes {
   static const resetPassword = '/resetPassword';
   static const bottomBar = '/bottomBar';
   static const home = '/home';
+  static const categories = '/categories';
+  static const subCategories = '/subCategories';
+  static const productDetails = '/productDetails';
 }

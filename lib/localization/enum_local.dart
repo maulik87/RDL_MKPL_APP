@@ -18,4 +18,6 @@ enum EnumLocal {
   txtEnterCompanyName,
   txtForgotPasswordTitle,
   txtSearchHere,
+  txtCategories,
+  txtDescription,
 }

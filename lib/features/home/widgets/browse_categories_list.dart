@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
+import 'package:rdl_market_place_app/routes/app_pages.dart';
 import 'package:rdl_market_place_app/widgets/app_text.dart';
 
 class BrowseCategoriesList extends StatelessWidget {
@@ -20,10 +22,15 @@ class BrowseCategoriesList extends StatelessWidget {
                   fontSize: AppFontSize.size_13,
                 ),
               ),
-              AppText(
-                text: 'See all',
-                fontSize: AppFontSize.size_13,
-                txtDecoration: TextDecoration.underline,
+              InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.categories);
+                },
+                child: AppText(
+                  text: 'See all',
+                  fontSize: AppFontSize.size_13,
+                  txtDecoration: TextDecoration.underline,
+                ),
               ),
             ],
           ),

@@ -17,4 +17,6 @@ final Map<String, String> enUS = {
   EnumLocal.txtEnterFullName.name: "Enter FullName",
   EnumLocal.txtEnterCompanyName.name: "Enter Company Name",
   EnumLocal.txtSearchHere.name: "Search here",
+  EnumLocal.txtCategories.name: "Categories",
+  EnumLocal.txtDescription.name: "Description",
 };

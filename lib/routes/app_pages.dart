@@ -2,16 +2,22 @@ import 'package:get/route_manager.dart';
 import 'package:rdl_market_place_app/core/config/utils.dart';
 import 'package:rdl_market_place_app/features/bottom_bar/bindings/bottom_bar_binding.dart';
 import 'package:rdl_market_place_app/features/bottom_bar/view/bottom_bar_screen.dart';
+import 'package:rdl_market_place_app/features/categories/bindings/categories_binding.dart';
+import 'package:rdl_market_place_app/features/categories/view/categories_screen.dart';
 import 'package:rdl_market_place_app/features/forgotpassword/bindings/forgot_pass_binding.dart';
 import 'package:rdl_market_place_app/features/forgotpassword/view/forgot_pass_screen.dart';
 import 'package:rdl_market_place_app/features/home/bindings/home_binding.dart';
 import 'package:rdl_market_place_app/features/home/view/home_screen.dart';
 import 'package:rdl_market_place_app/features/login/bindings/login_binding.dart';
 import 'package:rdl_market_place_app/features/login/view/login_screen.dart';
+import 'package:rdl_market_place_app/features/product_details/bindings/product_details_binding.dart';
+import 'package:rdl_market_place_app/features/product_details/view/product_details_screen.dart';
 import 'package:rdl_market_place_app/features/resetpassword/bindings/reset_password_binding.dart';
 import 'package:rdl_market_place_app/features/resetpassword/view/reset_password_screen.dart';
 import 'package:rdl_market_place_app/features/signup/bindings/signup_binding.dart';
 import 'package:rdl_market_place_app/features/signup/view/signup_screen.dart';
+import 'package:rdl_market_place_app/features/sub_categories/bindings/sub_categories_binding.dart';
+import 'package:rdl_market_place_app/features/sub_categories/view/sub_categories_screen.dart';
 
 part 'app_routes.dart';
 
@@ -50,6 +56,21 @@ class AppPages {
       name: Routes.home,
       page: () => HomeScreen(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.categories,
+      page: () => CategoriesScreen(),
+      binding: CategoriesBinding(),
+    ),
+    GetPage(
+      name: Routes.subCategories,
+      page: () => SubCategoriesScreen(),
+      binding: SubCategoriesBinding(),
+    ),
+    GetPage(
+      name: Routes.productDetails,
+      page: () => const ProductDetailsCreen(),
+      binding: ProductDetailsBinding(),
     ),
   ];
 }
