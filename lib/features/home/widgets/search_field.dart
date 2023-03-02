@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/app_color.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
 import 'package:rdl_market_place_app/localization/enum_local.dart';
+import 'package:rdl_market_place_app/routes/app_pages.dart';
 import 'package:rdl_market_place_app/widgets/text_form_field.dart';
 
 class SearchFeild extends StatelessWidget {
@@ -23,6 +24,8 @@ class SearchFeild extends StatelessWidget {
               hintText: EnumLocal.txtSearchHere.name.tr,
               keyboardType: TextInputType.text,
               prefixIcon: const Icon(Icons.search, color: AppColor.black),
+              readOnly: true,
+              onTap: () => Get.toNamed(Routes.search),
             ),
           ),
           Container(

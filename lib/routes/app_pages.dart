@@ -14,6 +14,10 @@ import 'package:rdl_market_place_app/features/product_details/bindings/product_d
 import 'package:rdl_market_place_app/features/product_details/view/product_details_screen.dart';
 import 'package:rdl_market_place_app/features/resetpassword/bindings/reset_password_binding.dart';
 import 'package:rdl_market_place_app/features/resetpassword/view/reset_password_screen.dart';
+import 'package:rdl_market_place_app/features/search/bindings/search_binding.dart';
+import 'package:rdl_market_place_app/features/search/view/search_screen.dart';
+import 'package:rdl_market_place_app/features/search_result/bindings/search_result_binding.dart';
+import 'package:rdl_market_place_app/features/search_result/view/search_result_screen.dart';
 import 'package:rdl_market_place_app/features/signup/bindings/signup_binding.dart';
 import 'package:rdl_market_place_app/features/signup/view/signup_screen.dart';
 import 'package:rdl_market_place_app/features/sub_categories/bindings/sub_categories_binding.dart';
@@ -71,6 +75,16 @@ class AppPages {
       name: Routes.productDetails,
       page: () => const ProductDetailsCreen(),
       binding: ProductDetailsBinding(),
+    ),
+    GetPage(
+      name: Routes.search,
+      page: () => const SaerchScreen(),
+      binding: SearchBinding(),
+    ),
+    GetPage(
+      name: Routes.searchResult,
+      page: () => const SaerchResultScreen(),
+      binding: SearchResultBinding(),
     ),
   ];
 }

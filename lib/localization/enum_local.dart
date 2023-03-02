@@ -20,4 +20,8 @@ enum EnumLocal {
   txtSearchHere,
   txtCategories,
   txtDescription,
+  txtSearchYourLocation,
+  txtRecentSearch,
+  txtPopularCategories,
+  txtSearchResult,
 }

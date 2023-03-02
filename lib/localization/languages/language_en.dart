@@ -19,4 +19,8 @@ final Map<String, String> enUS = {
   EnumLocal.txtSearchHere.name: "Search here",
   EnumLocal.txtCategories.name: "Categories",
   EnumLocal.txtDescription.name: "Description",
+  EnumLocal.txtSearchYourLocation.name: "Search your location",
+  EnumLocal.txtRecentSearch.name: "Recent Search",
+  EnumLocal.txtPopularCategories.name: "Popular categories",
+  EnumLocal.txtSearchResult.name: "Search result",
 };

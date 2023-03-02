@@ -85,11 +85,13 @@ class PrifixCommonTextFormField extends StatelessWidget {
     required this.controller,
     required this.hintText,
     this.keyboardType = TextInputType.text,
+    this.textInputAction = TextInputAction.done,
     this.obscureText = false,
     this.prefixText = '',
     this.autofocus = false,
     this.readOnly = false,
     this.onTap,
+    this.onEditingComplete,
     this.textColor = AppColor.black,
     this.hintTextColor = AppColor.txtGrey,
     this.validator,
@@ -99,11 +101,13 @@ class PrifixCommonTextFormField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final TextInputType keyboardType;
+  final TextInputAction textInputAction;
   final bool obscureText;
   final bool autofocus;
   final bool readOnly;
   final String prefixText;
   final void Function()? onTap;
+  final void Function()? onEditingComplete;
   final Color textColor;
   final Color hintTextColor;
   final Widget prefixIcon;
@@ -125,9 +129,11 @@ class PrifixCommonTextFormField extends StatelessWidget {
       autofocus: autofocus,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      textInputAction: textInputAction,
       textAlign: TextAlign.start,
       readOnly: readOnly,
       onTap: onTap,
+      onEditingComplete: onEditingComplete,
       validator: validator,
       textAlignVertical: TextAlignVertical.center,
       style: TextStyle(

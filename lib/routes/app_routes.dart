@@ -10,4 +10,6 @@ abstract class Routes {
   static const categories = '/categories';
   static const subCategories = '/subCategories';
   static const productDetails = '/productDetails';
+  static const search = '/search';
+  static const searchResult = '/searchResult';
 }

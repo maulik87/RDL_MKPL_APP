@@ -90,8 +90,8 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     if (Debug.debug) {
-      emailController.text = "maulik456@yopmail.com";
-      passController.text = "Test@123";
+      emailController.text = "nirav@yopmail.com";
+      passController.text = "12345678";
     }
     super.onInit();
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rdl_market_place_app/core/config/app_color.dart';
 import 'package:rdl_market_place_app/features/home/controllers/home_controller.dart';
 import 'package:rdl_market_place_app/features/home/widgets/browse_categories_list.dart';
 import 'package:rdl_market_place_app/features/home/widgets/fresh_recommendations_list.dart';
