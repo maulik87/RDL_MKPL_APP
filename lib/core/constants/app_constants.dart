@@ -5,6 +5,7 @@ abstract class StatusCode {
 }
 
 abstract class StringConstant {
+  static const currencySymbol = '\$';
   static const tabFrequent = 'frequent';
   static const tabRecent = 'recent';
   static const tabFavourite = 'favorite';

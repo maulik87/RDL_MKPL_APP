@@ -1,5 +1,7 @@
 import 'package:get/route_manager.dart';
 import 'package:rdl_market_place_app/core/config/utils.dart';
+import 'package:rdl_market_place_app/features/account_setting/bindings/account_setting_binding.dart';
+import 'package:rdl_market_place_app/features/account_setting/view/account_setting_screen.dart';
 import 'package:rdl_market_place_app/features/bottom_bar/bindings/bottom_bar_binding.dart';
 import 'package:rdl_market_place_app/features/bottom_bar/view/bottom_bar_screen.dart';
 import 'package:rdl_market_place_app/features/categories/bindings/categories_binding.dart';
@@ -10,8 +12,12 @@ import 'package:rdl_market_place_app/features/home/bindings/home_binding.dart';
 import 'package:rdl_market_place_app/features/home/view/home_screen.dart';
 import 'package:rdl_market_place_app/features/login/bindings/login_binding.dart';
 import 'package:rdl_market_place_app/features/login/view/login_screen.dart';
+import 'package:rdl_market_place_app/features/my_account/bindings/my_account_binding.dart';
+import 'package:rdl_market_place_app/features/my_account/view/my_account_screen.dart';
 import 'package:rdl_market_place_app/features/product_details/bindings/product_details_binding.dart';
 import 'package:rdl_market_place_app/features/product_details/view/product_details_screen.dart';
+import 'package:rdl_market_place_app/features/profile/bindings/profile_binding.dart';
+import 'package:rdl_market_place_app/features/profile/view/profile_screen.dart';
 import 'package:rdl_market_place_app/features/resetpassword/bindings/reset_password_binding.dart';
 import 'package:rdl_market_place_app/features/resetpassword/view/reset_password_screen.dart';
 import 'package:rdl_market_place_app/features/search/bindings/search_binding.dart';
@@ -73,7 +79,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.productDetails,
-      page: () => const ProductDetailsCreen(),
+      page: () => ProductDetailScreen(),
       binding: ProductDetailsBinding(),
     ),
     GetPage(
@@ -85,6 +91,21 @@ class AppPages {
       name: Routes.searchResult,
       page: () => const SaerchResultScreen(),
       binding: SearchResultBinding(),
+    ),
+    GetPage(
+      name: Routes.myAccount,
+      page: () => const MyAccountScreen(),
+      binding: MyAccountBinding(),
+    ),
+    GetPage(
+      name: Routes.accountSetting,
+      page: () => const AccountSettingScreen(),
+      binding: AccountSettingBinding(),
+    ),
+    GetPage(
+      name: Routes.profile,
+      page: () => const ProfileScreen(),
+      binding: ProfileBinding(),
     ),
   ];
 }

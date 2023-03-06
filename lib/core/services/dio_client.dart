@@ -6,6 +6,8 @@ import 'package:rdl_market_place_app/core/config/app_exception.dart';
 import 'package:rdl_market_place_app/core/config/debug.dart';
 import 'package:rdl_market_place_app/core/config/preference.dart';
 import 'package:rdl_market_place_app/core/constants/app_constants.dart';
+import 'package:rdl_market_place_app/core/constants/end_point_params.dart';
+import 'package:rdl_market_place_app/routes/app_pages.dart';
 
 /// A callback that returns a Dio response, presumably from a Dio method
 /// it has called which performs an HTTP request, such as `dio.get()`,
@@ -26,7 +28,10 @@ abstract class IApiClient {
 
   Future<Response<dynamic>> put(String uri, {dynamic data});
 
-  void updateHeader(String apiKey);
+
+  void updateContentTypeHeader({bool isMultiPart = false});
+
+  void updateAuthorizationHeader();
 }
 
 class DioClient implements IApiClient {
@@ -37,7 +42,8 @@ class DioClient implements IApiClient {
       ..options.baseUrl = _baseUrl
       ..options.contentType = 'application/json'
       ..options.headers = {
-        if (apiKey != null) 'api_key': apiKey,
+        // Params.contentTypeHeader: 'application/x-www-form-urlencoded',
+        // Params.acceptHeader: 'application/json',
       };
 
     _dio.interceptors.add(
@@ -49,6 +55,8 @@ class DioClient implements IApiClient {
       ),
     );
 
+    updateAuthorizationHeader();
+
     Debug.logE(apiKey.toString());
   }
 
@@ -58,8 +66,21 @@ class DioClient implements IApiClient {
   final String _baseUrl;
 
   @override
-  void updateHeader(String apiKey) {
-    _dio.options.headers['api_key'] = apiKey;
+  void updateContentTypeHeader({bool isMultiPart = false}) {
+    _dio.options.headers[Params.contentTypeHeader] = (isMultiPart)
+        ? 'multipart/form-data'
+        : 'application/x-www-form-urlencoded';
+  }
+
+  @override
+  void updateAuthorizationHeader() {
+    final accessToken = Preference.shared.getString(Preference.token);
+    Debug.logE("accessToken ==> $accessToken");
+    if (accessToken != null) {
+      _dio.options.headers[Params.authorizationHeader] = "Bearer $accessToken";
+    } else {
+      _dio.options.headers.remove(Params.authorizationHeader);
+    }
   }
 
   @override
@@ -96,9 +117,9 @@ class DioClient implements IApiClient {
       return await request();
     } on DioError catch (e) {
       if (e.response?.statusCode == StatusCode.unAuthenticate) {
-        // unawaited(Preference.shared.clearLogout());
+         unawaited(Preference.shared.clearLogout());
 
-        // unawaited(get_x.Get.offAllNamed(Routes.login));
+         unawaited(get_x.Get.offAllNamed(Routes.login));
       }
 
       if (e.response != null && e.response?.data is Map) {

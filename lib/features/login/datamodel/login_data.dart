@@ -6,7 +6,7 @@ part 'login_data.g.dart';
 class LoginData {
   LoginData({
     this.data,
-    this.success,
+    this.status,
     this.message,
   });
 
@@ -16,7 +16,7 @@ class LoginData {
   Map<String, dynamic> toJson() => _$LoginDataToJson(this);
 
   final LData? data;
-  final bool? success;
+  final bool? status;
   final String? message;
 }
 

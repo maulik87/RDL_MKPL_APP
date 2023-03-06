@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/app_color.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
+import 'package:rdl_market_place_app/core/constants/app_constants.dart';
+import 'package:rdl_market_place_app/features/product_details/controllers/product_details_controller.dart';
 import 'package:rdl_market_place_app/localization/enum_local.dart';
 import 'package:rdl_market_place_app/widgets/app_text.dart';
 
 class ProductIntroDetails extends StatelessWidget {
-  const ProductIntroDetails({super.key});
+  ProductIntroDetails({super.key});
+
+  final ProductDetailsController _productDetailsController =
+  Get.find<ProductDetailsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +25,19 @@ class ProductIntroDetails extends StatelessWidget {
         children: [
           SizedBox(height: AppSizes.height_2),
           AppText(
-            text: 'Product Name',
+            text: _productDetailsController.product.name??"",
             fontSize: AppFontSize.size_18,
             fontWeight: FontWeight.w600,
           ),
           AppText(
-            text: 'Product Description',
+            text: _productDetailsController.product.description??"",
             txtColor: AppColor.txtGrey,
             fontSize: AppFontSize.size_12,
             fontWeight: FontWeight.w400,
           ),
           SizedBox(height: AppSizes.height_5),
           AppText(
-            text: '₹ 50,00,000,0000',
+            text: "${StringConstant.currencySymbol} ${_productDetailsController.product.price}",
             fontSize: AppFontSize.size_18,
             fontWeight: FontWeight.w600,
           ),
@@ -122,7 +127,7 @@ class ProductIntroDetails extends StatelessWidget {
             ),
             margin: EdgeInsets.symmetric(vertical: AppSizes.height_10),
             child: AppText(
-              text: 'Add here HTML data',
+              text: _productDetailsController.product.description??"",
               fontSize: AppFontSize.size_12,
               fontWeight: FontWeight.w400,
             ),

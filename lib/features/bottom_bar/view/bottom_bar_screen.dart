@@ -4,6 +4,7 @@ import 'package:rdl_market_place_app/core/config/app_color.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
 import 'package:rdl_market_place_app/features/bottom_bar/controllers/bottom_bar_controller.dart';
 import 'package:rdl_market_place_app/features/home/view/home_screen.dart';
+import 'package:rdl_market_place_app/features/my_account/view/my_account_screen.dart';
 import 'package:rdl_market_place_app/widgets/app_text.dart';
 
 class BottomBarScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class BottomBarScreen extends StatelessWidget {
             HomeScreen(),
             const ColoredBox(color: Colors.yellow),
             const ColoredBox(color: Colors.red),
-            const ColoredBox(color: Colors.pink),
+            const MyAccountScreen(),
           ],
         ),
       ),

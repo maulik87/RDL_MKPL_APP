@@ -1,4 +1,7 @@
 abstract class Params {
+  static const authorizationHeader = 'Authorization';
+  static const contentTypeHeader = 'Content-Type';
+  static const acceptHeader = 'Accept';
 
   static const email = 'email';
   static const password = 'password';

@@ -15,6 +15,7 @@ class Preference {
   static const String apiKey = 'API_KEY';
   static const String token = 'TOKEN';
   static const String isLogin = 'IS_LOGIN';
+  static const String userData = 'USER_DATA';
   static const String selectedLanguage = "LANGUAGE";
   static const String selectedCountryCode = "SELECTED_COUNTRY_CODE";
 
@@ -102,8 +103,9 @@ class Preference {
   }
 
   Future<bool> clearLogout() async {
-    await _pref!.remove(apiKey);
+    await _pref!.remove(token);
     await _pref!.remove(isLogin);
+    await _pref!.remove(userData);
     return Future.value(true);
   }
 }

@@ -26,11 +26,11 @@ class SubCategoriesScreen extends StatelessWidget
             backgroundColor: AppColor.white,
             flexibleSpace: TopBar(
               clickListener: this,
-              title: "Categorie Name",
+              title: _subCategoriesController.category.name??"",
               isShowBack: true,
             ),
           ),
-          body: const SubCategoriesList(),
+          body: SubCategoriesList(),
         ),
         Obx(
           () => ProgressDialog(

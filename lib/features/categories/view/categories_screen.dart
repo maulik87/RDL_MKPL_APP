@@ -30,7 +30,7 @@ class CategoriesScreen extends StatelessWidget implements TopBarClickListener {
               isShowBack: true,
             ),
           ),
-          body: const CategoriesList(),
+          body: CategoriesList(),
         ),
         Obx(
           () => ProgressDialog(

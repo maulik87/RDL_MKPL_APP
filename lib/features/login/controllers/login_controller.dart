@@ -68,12 +68,15 @@ class LoginController extends GetxController {
         LoginData loginData =
             LoginData.fromJson(res.data as Map<String, dynamic>);
 
-        if (loginData.data != null) {
-          Preference.shared.setBool(Preference.isLogin, true);
-          Preference.shared.setString(Preference.token, loginData.data!.token);
+        if ((loginData.status??false) && loginData.data != null) {
+          await Preference.shared.setBool(Preference.isLogin, true);
+          await Preference.shared.setString(Preference.token, loginData.data!.token);
+          _client.updateAuthorizationHeader();
+        }else{
+          unawaited(Utils.showToast(Get.context!, loginData.message??EnumLocal.errSomethingWentWrong.name.tr));
         }
 
-        Get.offAllNamed(Routes.bottomBar);
+        Get.offAllNamed(Routes.home);
       } on AppException catch (exception) {
         unawaited(Utils.showToast(Get.context!, exception.message));
       } catch (e) {
@@ -90,6 +93,8 @@ class LoginController extends GetxController {
   @override
   void onInit() {
     if (Debug.debug) {
+      //emailController.text = "maulik456@yopmail.com";
+      //passController.text = "Test@123";
       emailController.text = "nirav@yopmail.com";
       passController.text = "12345678";
     }

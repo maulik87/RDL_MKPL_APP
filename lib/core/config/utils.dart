@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rdl_market_place_app/core/config/app_color.dart';
 import 'package:rdl_market_place_app/core/config/app_sizes.dart';
 import 'package:rdl_market_place_app/core/config/preference.dart';
+import 'package:rdl_market_place_app/features/home/datamodel/profile_data.dart';
 
 abstract class Utils {
   static Widget divider(Color color, {double hMargin = 0, double vMargin = 0}) {
@@ -36,5 +39,15 @@ abstract class Utils {
       textColor: AppColor.white,
       fontSize: AppFontSize.size_13,
     );
+  }
+
+  static UserProfile? getUserProfile(){
+    String? str  = Preference.shared.getString(Preference.userData);
+
+    if(str !=null)
+      {
+        return UserProfile.fromJson(jsonDecode(str));
+      }
+    return null;
   }
 }

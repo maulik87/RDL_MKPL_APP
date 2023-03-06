@@ -12,4 +12,7 @@ abstract class Routes {
   static const productDetails = '/productDetails';
   static const search = '/search';
   static const searchResult = '/searchResult';
+  static const myAccount = '/myAccount';
+  static const accountSetting = '/accountSetting';
+  static const profile = '/profile';
 }
