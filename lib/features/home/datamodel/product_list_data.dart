@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:json_annotation/json_annotation.dart';
 import 'package:rdl_market_place_app/features/home/datamodel/category_data.dart';
 
@@ -131,10 +129,7 @@ class Media {
   String? url;
   String? tag;
 
-
-  factory Media.fromJson(Map<String, dynamic> json) =>
-      _$MediaFromJson(json);
+  factory Media.fromJson(Map<String, dynamic> json) => _$MediaFromJson(json);
 
   Map<String, dynamic> toJson() => _$MediaToJson(this);
-
 }

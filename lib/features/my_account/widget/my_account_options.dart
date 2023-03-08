@@ -1,4 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/app_color.dart';
@@ -17,7 +18,9 @@ class MyAccountOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: AppSizes.height_20,),
+        SizedBox(
+          height: AppSizes.height_20,
+        ),
         InkWell(
           onTap: () {
             ///Get.back();
@@ -51,7 +54,10 @@ class MyAccountOptions extends StatelessWidget {
             ),
           ),
         ),
-        const Divider(height: 1.5,color: AppColor.black,),
+        const Divider(
+          height: 1.5,
+          color: AppColor.black,
+        ),
         InkWell(
           onTap: () {
             Get.toNamed(Routes.accountSetting);
@@ -84,7 +90,10 @@ class MyAccountOptions extends StatelessWidget {
             ),
           ),
         ),
-        const Divider(height: 1.5,color: AppColor.black,),
+        const Divider(
+          height: 1.5,
+          color: AppColor.black,
+        ),
       ],
     );
   }
