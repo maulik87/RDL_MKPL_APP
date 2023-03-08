@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/config/utils.dart';
 import 'package:rdl_market_place_app/core/services/dio_client.dart';
@@ -17,8 +19,7 @@ class MyAccountController extends GetxController {
     super.onInit();
   }
 
-  void openEditProfileScreen()
-  {
+  void openEditProfileScreen() {
     Get.toNamed(Routes.profile);
   }
 }

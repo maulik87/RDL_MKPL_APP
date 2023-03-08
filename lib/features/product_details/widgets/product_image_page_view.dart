@@ -32,7 +32,9 @@ class ProductImagePageView extends StatelessWidget {
                   width: AppSizes.fullWidth,
                 ),
                 placeholderFadeInDuration: Duration.zero,
-                imageUrl: EndPoint.imageBaseURL + (_productDetailsController.product.medias![index].url??""),
+                imageUrl: EndPoint.imageBaseURL +
+                    (_productDetailsController.product.medias![index].url ??
+                        ""),
                 fadeInDuration: Duration.zero,
                 fadeOutDuration: Duration.zero,
                 imageBuilder: (context, imageProvider) => Container(
@@ -51,17 +53,17 @@ class ProductImagePageView extends StatelessWidget {
                 ),
               );
 
-                Image.network(
-                'https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1600',
-                fit: BoxFit.fill,
-              );
+              // Image.network(
+              // 'https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1600',
+              // fit: BoxFit.fill,
+              // );
             },
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: AppSizes.height_15),
             child: SmoothPageIndicator(
               controller: _productDetailsController.pageController,
-              count: _productDetailsController.product.medias?.length??0,
+              count: _productDetailsController.product.medias?.length ?? 0,
               effect: const ScrollingDotsEffect(
                 activeDotColor: AppColor.solidSleep,
                 dotColor: AppColor.white,

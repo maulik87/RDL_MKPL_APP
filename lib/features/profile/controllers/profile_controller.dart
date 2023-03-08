@@ -1,11 +1,11 @@
+// ignore_for_file: unused_field
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:rdl_market_place_app/core/config/app_sizes.dart';
-import 'package:rdl_market_place_app/core/config/debug.dart';
 import 'package:rdl_market_place_app/core/config/utils.dart';
 import 'package:rdl_market_place_app/core/constants/widget_ids.dart';
 import 'package:rdl_market_place_app/core/services/dio_client.dart';
@@ -75,15 +75,14 @@ class ProfileController extends GetxController {
       updateUserProfilePicModel.profile = _imageFile;
       isUpdateRequired = true;
       Debug.printLog("_imageFile =====> " + _imageFile.toString());
-      *//*Debug.printLog("editProfileImageDataModel.profileImage =====> " +
-          editProfileImageDataModel.profileImage.toString());*//*
+      */ /*Debug.printLog("editProfileImageDataModel.profileImage =====> " +
+          editProfileImageDataModel.profileImage.toString());*/ /*
     });*/
 
     //_getEditProfileImage();
   }
 
-  openImageCropper(XFile? file)
-  async {
+  openImageCropper(XFile? file) async {
     if (file != null && file.path.isNotEmpty) {
       CroppedFile? croppedFile = await ImageCropper().cropImage(
         sourcePath: file.path,
@@ -92,21 +91,22 @@ class ProfileController extends GetxController {
         compressQuality: 60,
         maxHeight: 100,
         maxWidth: 100,
-        uiSettings: [AndroidUiSettings(
-            toolbarTitle: 'Cropper',
-            showCropGrid: false,
-            initAspectRatio: CropAspectRatioPreset.ratio4x3,
-            lockAspectRatio: false
-        ),IOSUiSettings(
-          title: 'Cropper',
-
-        )],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Cropper',
+              showCropGrid: false,
+              initAspectRatio: CropAspectRatioPreset.ratio4x3,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Cropper',
+          )
+        ],
       );
-        if (croppedFile != null && croppedFile.path.isNotEmpty) {
-          imageFile = File(croppedFile.path);
-          update([WidgetIds.profilePictureViewId]);
-        }
-        /*Debug.printLog("editProfileImageDataModel.profileImage =====> " +
+      if (croppedFile != null && croppedFile.path.isNotEmpty) {
+        imageFile = File(croppedFile.path);
+        update([WidgetIds.profilePictureViewId]);
+      }
+      /*Debug.printLog("editProfileImageDataModel.profileImage =====> " +
           editProfileImageDataModel.profileImage.toString());*/
     }
   }

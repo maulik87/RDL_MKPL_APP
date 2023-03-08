@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/services/dio_client.dart';
 import 'package:rdl_market_place_app/features/home/datamodel/category_data.dart';

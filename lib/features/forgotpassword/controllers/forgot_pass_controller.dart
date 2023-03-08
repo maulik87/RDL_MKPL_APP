@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:rdl_market_place_app/core/config/app_enums.dart';
 import 'package:rdl_market_place_app/core/config/app_exception.dart';
 import 'package:rdl_market_place_app/core/config/debug.dart';
 import 'package:rdl_market_place_app/core/config/utils.dart';
@@ -22,7 +21,7 @@ class ForgotPassController extends GetxController {
   bool isShowProgress = false;
   TextEditingController emailController = TextEditingController();
 
-  void onSubmitClick(){
+  void onSubmitClick() {
     Get.toNamed(Routes.resetPassword);
   }
 
@@ -36,34 +35,31 @@ class ForgotPassController extends GetxController {
     return true;
   }
 
-
   Future<void> forgotPass() async {
     if (await validateLoginDetail()) {
       isShowProgress = true;
       update([WidgetIds.progressViewId]);
 
       try {
-
-        Map<String,dynamic> map = {Params.email: emailController.text.trim()};
+        Map<String, dynamic> map = {Params.email: emailController.text.trim()};
 
         var res = await _client.post(
           EndPoint.forgotPass,
           data: map,
         );
 
-        ForgotPassData forgotPassData = ForgotPassData.fromJson(res.data as Map<String,dynamic>);
+        ForgotPassData forgotPassData =
+            ForgotPassData.fromJson(res.data as Map<String, dynamic>);
 
-        if(forgotPassData.message != null) {
-          unawaited(Utils.showToast(Get.context!, forgotPassData.message));
-          Get.back();
-        }
-
+        unawaited(Utils.showToast(Get.context!, forgotPassData.message));
+        Get.back();
       } on AppException catch (exception) {
         unawaited(Utils.showToast(Get.context!, exception.message));
       } catch (e) {
         Debug.logE(e.toString());
-        unawaited(Utils.showToast(Get.context!, EnumLocal.errSomethingWentWrong.name.tr));
-      }finally {
+        unawaited(Utils.showToast(
+            Get.context!, EnumLocal.errSomethingWentWrong.name.tr));
+      } finally {
         isShowProgress = false;
         update([WidgetIds.progressViewId]);
       }

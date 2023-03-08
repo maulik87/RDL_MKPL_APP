@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rdl_market_place_app/core/services/dio_client.dart';

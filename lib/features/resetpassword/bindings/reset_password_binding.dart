@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:rdl_market_place_app/features/login/controllers/login_controller.dart';
 import 'package:rdl_market_place_app/features/resetpassword/controllers/reset_password_controller.dart';
 
 class ResetPasswordBinding extends Bindings {

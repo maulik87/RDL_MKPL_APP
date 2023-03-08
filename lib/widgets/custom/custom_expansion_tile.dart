@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 const Duration _kExpand = Duration(milliseconds: 200);
@@ -78,9 +80,12 @@ class ExpansionTile extends StatefulWidget {
 
 class _ExpansionTileState extends State<ExpansionTile>
     with SingleTickerProviderStateMixin {
-  static final Animatable<double> _easeOutTween = CurveTween(curve: Curves.easeOut);
-  static final Animatable<double> _easeInTween = CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween = Tween<double>(begin: 0.0, end: 0.25);
+  static final Animatable<double> _easeOutTween =
+      CurveTween(curve: Curves.easeOut);
+  static final Animatable<double> _easeInTween =
+      CurveTween(curve: Curves.easeIn);
+  static final Animatable<double> _halfTween =
+      Tween<double>(begin: 0.0, end: 0.25);
 
   final ColorTween _borderColorTween = ColorTween();
   final ColorTween _headerColorTween = ColorTween();
@@ -110,7 +115,7 @@ class _ExpansionTileState extends State<ExpansionTile>
         _controller!.drive(_backgroundColorTween.chain(_easeOutTween));
 
     _isExpanded =
-        PageStorage.of(context)?.readState(context) ?? widget.initiallyExpanded;
+        PageStorage.of(context).readState(context) ?? widget.initiallyExpanded;
     if (_isExpanded) _controller!.value = 1.0;
   }
 
@@ -133,10 +138,11 @@ class _ExpansionTileState extends State<ExpansionTile>
           });
         });
       }
-      PageStorage.of(context)?.writeState(context, _isExpanded);
+      PageStorage.of(context).writeState(context, _isExpanded);
     });
-    if (widget.onExpansionChanged != null)
+    if (widget.onExpansionChanged != null) {
       widget.onExpansionChanged!(_isExpanded);
+    }
   }
 
   Widget _buildChildren(BuildContext context, Widget? child) {
@@ -163,7 +169,7 @@ class _ExpansionTileState extends State<ExpansionTile>
                 title: DefaultTextStyle(
                   style: Theme.of(context)
                       .textTheme
-                      .subtitle1!
+                      .titleMedium!
                       .copyWith(color: titleColor),
                   child: widget.title!,
                 ),
@@ -193,14 +199,14 @@ class _ExpansionTileState extends State<ExpansionTile>
   @override
   void didChangeDependencies() {
     final ThemeData theme = Theme.of(context);
-    _borderColorTween..end = theme.dividerColor;
+    _borderColorTween.end = theme.dividerColor;
     _headerColorTween
-      ..begin = theme.textTheme.subtitle1!.color
-      ..end = theme.accentColor;
+      ..begin = theme.textTheme.titleMedium!.color
+      ..end = theme.colorScheme.secondary;
     _iconColorTween
       ..begin = theme.unselectedWidgetColor
-      ..end = theme.accentColor;
-    _backgroundColorTween..end = widget.backgroundColor;
+      ..end = theme.colorScheme.secondary;
+    _backgroundColorTween.end = widget.backgroundColor;
     super.didChangeDependencies();
   }
 
